@@ -5,7 +5,7 @@ import SmallNewCard from "./smallNewCard";
 
 const NewArticle = () => {
   return (
-    <div className=" bg-transparent flex gap-2 pb-0">
+    <div className="bg-transparent flex flex-col md:flex-row gap-4 pb-0">
       <NewCard
         imageSrc={gymnastic}
         newsOutletName="Yahoo!"
@@ -13,9 +13,10 @@ const NewArticle = () => {
         title="Romanian PM to boycott Olympics' closing ceremony after 'scandalous situation' in..."
         time="19 minutes ago"
         link="https://www.yahoo.com/news/romanian-pm-boycott-olympics-closing-152445637.html"
+        className="md:w-1/2"
       />
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4 md:w-1/2">
         <SmallNewCard
           newsOutletIcon="https://upload.wikimedia.org/wikipedia/commons/6/66/CNN_International_logo.svg"
           newsOutletName="CNN news"
