@@ -1,7 +1,7 @@
 import React from 'react';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { Heart, ThumbsUp, ThumbsUpIcon } from 'lucide-react';
+import { Heart, ThumbsUpIcon } from 'lucide-react';
 
 const MySlider = ({ heading, slides, url }) => {
   return (
@@ -14,26 +14,36 @@ const MySlider = ({ heading, slides, url }) => {
           perMove: 1,
           autoplay: true,
           interval: 3000,
-          pagination: true
+          pagination: true,
+          breakpoints: {
+            1024: {
+              perPage: 2,
+            },
+            768: {
+              perPage: 1,
+            },
+          },
         }}
       >
         {slides.map((slide, index) => (
-          <SplideSlide key={index} className='bg-transparent'>
-            <div className="flex flex-col items-center justify-center p-4 bg-transparent rounded-lg shadow-lg">
-              <a href={url}><img src={slide.image} alt={`Image ${index + 1}`} className="rounded-lg mb-2" />
-            
-              
-              <h3 className="text-sm font-semibold hover:underline">{slide.title}</h3>
+          <SplideSlide key={index}>
+            <div className="flex flex-col items-center p-4 bg-transparent rounded-lg shadow-lg">
+              <a href={url}>
+                <img
+                  src={slide.image}
+                  alt={`Image ${index + 1}`}
+                  className="w-full h-auto rounded-lg mb-2 object-cover"
+                />
+                <h3 className="text-sm font-semibold text-center hover:underline">{slide.title}</h3>
               </a>
-              <div>
-                <button className='cursor-default'><ThumbsUpIcon className='w-5 h-6 absolute bottom-2 right-16 fill-black text-black animate-pulse hover:fill-blue-700' style={{ animationDuration: '6s' }}/></button>
-              <button className='cursor-default' onC>
-              <Heart  className='w-5 h-5 absolute bottom-2 right-8 fill-black text-black mt-1 animate-pulse hover:fill-red-700  ' style={{ animationDuration: '6s' }}/>
-
-              </button>
-
+              <div className="flex mt-2 space-x-4">
+                <button className='relative p-2'>
+                  <ThumbsUpIcon className='w-5 h-5 fill-black text-black hover:fill-blue-700 animate-pulse' />
+                </button>
+                <button className='relative p-2'>
+                  <Heart className='w-5 h-5 fill-black text-black hover:fill-red-700 animate-pulse' />
+                </button>
               </div>
-             
             </div>
           </SplideSlide>
         ))}
