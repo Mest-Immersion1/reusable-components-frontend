@@ -16,7 +16,7 @@ const NewArticle = () => {
         className="md:w-1/2"
       />
 
-      <div className="flex flex-col gap-4 md:w-1/2">
+      <div className="flex flex-col gap-1 md:w-1/2">
         <SmallNewCard
           newsOutletIcon="https://upload.wikimedia.org/wikipedia/commons/6/66/CNN_International_logo.svg"
           newsOutletName="CNN news"
