@@ -333,6 +333,7 @@ function App() {
         logoSrc="https://upload.wikimedia.org/wikipedia/commons/3/33/Google_News.png"
         menuItems={menuItems}
         userAvatar="https://pics.craiyon.com/2023-11-21/ZPNowLM3Sw6biUFWZkQfqA.webp"
+         selectedColor="decoration-blue-700"
       />
       <NewDisplay/>
     </>

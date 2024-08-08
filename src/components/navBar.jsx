@@ -2,7 +2,7 @@ import { Search, Menu } from "lucide-react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const NavBar = ({ logoSrc, menuItems, userAvatar }) => {
+const NavBar = ({ logoSrc, menuItems, userAvatar, selectedColor }) => {
   const [menu, setMenu] = useState(menuItems[0].label);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,7 +35,7 @@ const NavBar = ({ logoSrc, menuItems, userAvatar }) => {
           <li
             key={item.label}
             onClick={() => setMenu(item.label)}
-            className={`${menu === item.label ? "underline underline-offset-8 decoration-4 decoration-blue-700" : ""} cursor-pointer`}
+            className={`${menu === item.label ? `underline underline-offset-4 decoration-4 ${selectedColor}` : ""} cursor-pointer`}
           >
             {item.label}
           </li>
@@ -54,6 +54,9 @@ NavBar.propTypes = {
     })
   ).isRequired,
   userAvatar: PropTypes.string.isRequired,
+};
+NavBar.defaultProps = {
+  selectedColor: "decoration-blue-700", // Default color
 };
 
 export default NavBar;
