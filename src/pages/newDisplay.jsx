@@ -5,7 +5,7 @@ import LongNewCard from "../components/longNewCard";
 const NewDisplay = () => {
   return (
     <div className="bg-[#F6F8FC] p-4">
-      <h1 className="text-gray-900 text-[25px] font-semibold pl-4 md:pl-32 mt-5 mb-10">For you</h1>
+      <h1 className="text-gray-600 text-[20px] font-medium pl-4 md:pl-32 mt-5 mb-5 antialiased">For you</h1>
       <div className="p-5 justify-center rounded-[20px] mx-auto bg-white mt-4 w-full md:w-[80%] flex flex-col gap-2 gap-y-0">
         <NewArticle />
 

@@ -27,6 +27,7 @@ import SmallNewCard from "./components/smallNewCard";
 import LongNewCard from "./components/longNewCard";
 import NewArticle from "./components/newArticle";
 import NewDisplay from "./pages/newDisplay";
+import NavBar from "./components/navBar";
 
 const images = [
   {
@@ -171,6 +172,20 @@ const filterOptions = [
   { value: "Sports", label: "Sports" },
 ];
 
+const menuItems = [
+  { label: "Home", link: "/" },
+  { label: "For you", link: "/for-you" },
+  { label: "Following", link: "/following" },
+  { label: "World", link: "/world" },
+  { label: "Local", link: "/local" },
+  { label: "Business", link: "/business" },
+  { label: "Technology", link: "/technology" },
+  { label: "Entertainment", link: "/entertainment" },
+  { label: "Sports", link: "/sports" },
+  { label: "Science", link: "/science" },
+  { label: "Health", link: "/health" },
+];
+
 function App() {
   return (
     <>
@@ -307,12 +322,18 @@ function App() {
           textColor="text-gray-700"
           darkTextColor="dark:text-gray-300"
         />
-      </div>
+      </div> 
 
-      <NewCard />
+      {/* <NewCard />
       <SmallNewCard />
-      <LongNewCard />
-      <NewArticle />
+      <LongNewCard /> */}
+      {/* <NewArticle /> */}
+
+      <NavBar
+        logoSrc="https://upload.wikimedia.org/wikipedia/commons/3/33/Google_News.png"
+        menuItems={menuItems}
+        userAvatar="https://pics.craiyon.com/2023-11-21/ZPNowLM3Sw6biUFWZkQfqA.webp"
+      />
       <NewDisplay/>
     </>
   );

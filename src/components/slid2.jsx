@@ -1,7 +1,7 @@
-import '@splidejs/splide/dist/css/splide.min.css';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import SaveButton from './saveButton';
-import ShareButton from './shareButton';
+import "@splidejs/splide/dist/css/splide.min.css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import SaveButton from "./saveButton";
+import ShareButton from "./shareButton";
 // import './newsCarousel.css'
 
 const NewsCarousel = ({ heading, articles }) => {
@@ -10,10 +10,10 @@ const NewsCarousel = ({ heading, articles }) => {
       <h2 className="text-2xl font-bold mb-4">{heading}</h2>
       <Splide
         options={{
-          type: 'loop',
+          type: "loop",
           perPage: 3,
           perMove: 1,
-          gap: '1rem',
+          gap: "1rem",
           autoplay: true,
           interval: 5000,
           pagination: true,
@@ -39,13 +39,7 @@ const NewsCarousel = ({ heading, articles }) => {
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{article.title}</h3>
                 <p className="text-sm text-gray-700">{article.description}</p>
-
-                <div className='relative'>
-                <ShareButton className='pt-6 absolute'/>
               </div>
-               
-              </div>
-             
             </div>
           </SplideSlide>
         ))}
