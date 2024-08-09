@@ -61,9 +61,9 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link }
         </div>
       </div>
 
-      <a href={link}>
+      <a href={link} className='flex flex-col '>
         <span className="text-[20px] hover:underline text-gray-900 w-full font-medium">{title}</span>
-        <span className="text-[14px] text-gray-500 pt-4">{time}</span>
+        <span className="text-[14px] text-gray-500 pt-8">{time}</span>
       </a>
     </div>
   );
