@@ -28,6 +28,7 @@ import LongNewCard from "./components/longNewCard";
 import NewArticle from "./components/newArticle";
 import NewDisplay from "./pages/newDisplay";
 import NavBar from "./components/navBar";
+import More from "./components/more";
 
 const images = [
   {
@@ -329,6 +330,7 @@ function App() {
       <LongNewCard /> */}
       {/* <NewArticle /> */}
 
+      <More/>
       <NavBar
         logoSrc="https://upload.wikimedia.org/wikipedia/commons/3/33/Google_News.png"
         menuItems={menuItems}
