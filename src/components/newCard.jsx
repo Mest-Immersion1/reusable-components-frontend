@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EllipsisVertical, Bookmark, Share2, ThumbsUp, ThumbsDown, Link2, EyeOff } from 'lucide-react';
+import { EllipsisVertical, Bookmark, Share2, ThumbsUp, ThumbsDown, Link2, EyeOff, BookmarkIcon } from 'lucide-react';
 
 const menuItems = [
   { icon: Bookmark, label: 'Save for later' },
@@ -16,7 +16,9 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link }
 
   return (
     <div className="bg-transparent flex flex-col w-full md:w-[50%] p-2 gap-y-1 relative">
-      <a href={link}><img src={imageSrc} alt={title} className="rounded-[15px] w-full" /></a>
+      <a href={link}>
+        <img src={imageSrc} alt={title} className="rounded-[15px] w-full" />
+      </a>
 
       <div className="flex justify-between mt-2 relative group">
         <a href={link}>
@@ -27,15 +29,18 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link }
         </a>
 
         {/* Ellipsis Menu */}
-        <div className="relative flex items-center group">
+        <div className="relative flex items-center">
           <button
-            className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300"
+            className="hidden group-hover:flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300"
             onClick={() => setShowCard(!showCard)}
           >
             <EllipsisVertical />
           </button>
           {showCard && (
-            <div className={`absolute ${window.innerWidth >= 640 ? 'bottom-full mb-2' : 'top-full mt-2'} left-0 transform translate-y-1 border rounded-lg shadow-lg p-4 w-56 sm:w-64 md:w-80 bg-white z-50`}>
+            <div 
+              className={`absolute ${window.innerWidth >= 640 ? 'bottom-full mb-2 right-0 transform translate-x-1/2' : 'top-full mt-2 right-0'} 
+              border rounded-lg shadow-lg p-4 w-56 sm:w-64 md:w-80 bg-white z-50`}
+            >
               {menuItems.map((item, index) => (
                 <div 
                   key={index} 
@@ -43,10 +48,15 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link }
                   onClick={() => setShowCard(false)}
                 >
                   <item.icon className="mr-4 text-gray-500" size={20} />
-                  <span className="text-gray-500 whitespace-nowrap">{item.label}</span>
+                  <span className="text-gray-500 whitespace-normal break-words text-xs sm:text-sm md:text-base">{item.label}</span>
                 </div>
               ))}
             </div>
+          )}
+          {!showCard && (
+            <span className="absolute top-12 left-0 transform -translate-y-1/2 bg-gray-700 text-sm opacity-0 group-hover:opacity-100 text-white p-1 z-10">
+              More
+            </span>
           )}
         </div>
       </div>
