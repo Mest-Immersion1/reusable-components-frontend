@@ -2,8 +2,19 @@ import React from "react";
 import NewCard from "./newCard";
 import gymnastic from "../assets/images/gymnastic1.webp";
 import SmallNewCard from "./smallNewCard";
+import { Bookmark, Share2, ThumbsUp, ThumbsDown, Link2, EyeOff, BookmarkIcon } from 'lucide-react';
 
 const NewArticle = () => {
+
+  const menuItem = [
+    { icon: Bookmark, label: 'Save for later' },
+    { icon: Share2, label: 'Share' },
+    { icon: Link2, label: 'Go to Bloomberg' },
+    { icon: Link2, label: 'Go to Ekow Dontoh' },
+    { icon: EyeOff, label: 'Hide all stories from Bloomberg' },
+    { icon: ThumbsUp, label: 'More stories like this' },
+    { icon: ThumbsDown, label: 'Fewer stories like this' }
+  ];
   return (
     <div className="bg-transparent flex flex-col md:flex-row gap-4 pb-0">
       <NewCard
@@ -14,6 +25,7 @@ const NewArticle = () => {
         time="19 minutes ago"
         link="https://www.yahoo.com/news/romanian-pm-boycott-olympics-closing-152445637.html"
         className="md:w-1/2"
+        menuItem={menuItem}
       />
 
       <div className="flex flex-col gap-1 md:w-1/2">

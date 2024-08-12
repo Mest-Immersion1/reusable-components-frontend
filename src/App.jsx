@@ -29,6 +29,8 @@ import NewArticle from "./components/newArticle";
 import NewDisplay from "./pages/newDisplay";
 import NavBar from "./components/navBar";
 import More from "./components/more";
+import { Bookmark, Share2, ThumbsUp, ThumbsDown, Link2, EyeOff } from 'lucide-react';
+import gymnastic from "./assets/images/gymnastic1.webp";
 
 const images = [
   {
@@ -187,6 +189,16 @@ const menuItems = [
   { label: "Health", link: "/health" },
 ];
 
+const menuItem = [
+  { icon: Bookmark, label: 'Save for later' },
+  { icon: Share2, label: 'Share' },
+  { icon: Link2, label: 'Go to Bloomberg' },
+  { icon: Link2, label: 'Go to Ekow Dontoh' },
+  { icon: EyeOff, label: 'Hide all stories from Bloomberg' },
+  { icon: ThumbsUp, label: 'More stories like this' },
+  { icon: ThumbsDown, label: 'Fewer stories like this' }
+];
+
 function App() {
   return (
     <>
@@ -325,11 +337,21 @@ function App() {
         />
       </div> 
 
-      {/* <NewCard />
+      {/* 
       <SmallNewCard />
       <LongNewCard /> */}
       {/* <NewArticle /> */}
 
+      {/* <NewCard 
+      imageSrc={gymnastic}
+      newsOutletName="Yahoo!"
+      newsOutletIcon="https://duet-cdn.vox-cdn.com/thumbor/0x0:2000x1333/828x552/filters:focal(1000x667:1001x668):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/19224216/mb_yahoo_02.jpg"
+      title="Romanian PM to boycott Olympics' closing ceremony after 'scandalous situation' in..."
+      time="19 minutes ago"
+      link="https://www.yahoo.com/news/romanian-pm-boycott-olympics-closing-152445637.html"
+      className="md:w-1/2"
+      menuItem={menuItem}
+      /> */}
       <More/>
       <NavBar
         logoSrc="https://upload.wikimedia.org/wikipedia/commons/3/33/Google_News.png"
@@ -338,6 +360,10 @@ function App() {
          selectedColor="decoration-blue-700"
       />
       <NewDisplay/>
+
+      <div className="pb-40">
+      <More menuItem={menuItem}/>
+      </div>
     </>
   );
 }
