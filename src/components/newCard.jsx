@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { EllipsisVertical, Link2, X, Facebook } from 'lucide-react';
+import { EllipsisVertical, Link2, X, Facebook, Bookmark, Share2, EyeOff, ThumbsUp, ThumbsDown } from 'lucide-react';
 import x from "../assets/images/tweeter.png";
 import whatsapp from "../assets/images/whatsapp.png";
-import email from "../assets/images/email.png"
+import email from "../assets/images/email.png";
 
 const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, menuItem }) => {
   const [showCard, setShowCard] = useState(false);
@@ -38,6 +38,15 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, 
     setShowShareModal(false);
   };
 
+// const eventItemClick = (itemLabel) => {
+//   if (itemLabel.startsWith('Go to')) {
+//     window.open(link, '_blank');
+//     setShowCard(false);
+//   } else {
+//     alert(itemLabel);
+//     setShowCard(false);
+//   }}
+
   return (
     <div className="bg-transparent flex flex-col w-full md:w-[50%] p-2 gap-y-1 relative">
       <a href={link}>
@@ -70,16 +79,26 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, 
                   key={index}
                   className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
-                    if (item.label === 'Share') {
+                    if (item.label === 'Save for later') {
+                      const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+                      savedArticles.push({ title, imageSrc, link });
+                      localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+                      alert('Article saved for later!');
+                      setShowCard(false);
+                    } else if (item.label === 'Share') {
                       setShowShareModal(true);
                       setShowCard(false);
+                    } else if (item.label === `Go to ${newsOutletName}`) {
+                      window.open(link, '_blank');
+                      setShowCard(false);
                     } else {
+                      alert(item.label);
                       setShowCard(false);
                     }
                   }}
                 >
                   <item.icon className="mr-4 text-gray-500" size={20} />
-                  <span className="text-gray-500 whitespace-normal break-words text-xs sm:text-sm md:text-base">{item.label}</span>
+                  <span className="text-gray-500 whitespace-normal break-words text-xs sm:text-sm md:text-base">{item.label === 'Go to Bloomberg' ? `Go to ${newsOutletName}` : item.label}</span>
                 </div>
               ))}
             </div>
@@ -129,14 +148,13 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, 
                 <span className="text-sm mt-2">X (Twitter)</span>
               </div>
               <div className="flex flex-col items-center cursor-pointer" onClick={handleShareWhatsApp}>
-                <img src={whatsapp} alt="X" className="h-9" />
+                <img src={whatsapp} alt="WhatsApp" className="h-9" />
                 <span className="text-sm mt-2">WhatsApp</span>
               </div>
               <div className="flex flex-col items-center cursor-pointer" onClick={handleShareGmail}>
-                <img src={email} alt="X" className="h-9" />
+                <img src={email} alt="Email" className="h-9" />
                 <span className="text-sm mt-2">Email</span>
               </div>
-              
             </div>
           </div>
         </div>
