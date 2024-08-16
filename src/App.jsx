@@ -234,14 +234,14 @@ function App() {
         textColor="text-yellow-300" // Custom text color
       /> */}
 
-      <div className="p-4">
+      {/* <div className="p-4">
         <ImageSlider
           images={images}
           textSizeTitle="text-[50px]" // Custom title text size
           textSizeDescription="text-[20px]" // Custom description text size
           textColor="text-black-300" // Custom text color
         />
-      </div>
+      </div> */}
 
       <MySlider
         heading="Top Stories"
@@ -309,7 +309,7 @@ function App() {
         inputTextColor="text-blue-800"
         placeholderColor="placeholder-gray-500"
       />
-      <div className="p-30 flex justify-center mt-14 pb-10">
+      <div className="p-30 flex justify-center mt-14 pb-[20rem]">
         <NotificationIcon
           count={4}
           iconColor="text-teal-600"
