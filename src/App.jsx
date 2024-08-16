@@ -210,8 +210,8 @@ function App() {
         url="https://www.aljazeera.com/news/"
         backgroundColor=""
       />
-
-      <NewsCard
+<div className="pt-10">
+<NewsCard
         image={NewImg}
         title="Tiny Love Stories: ‘He Liked to Give Me Gifts'"
         snippet="Modern Love in miniature, featuring reader-submitted stories of no more than 100 words."
@@ -220,8 +220,10 @@ function App() {
         url="https://www.aljazeera.com/news/"
         backgroundColor="bg-orange-50"
       />
+</div>
+      
 
-      <NewsOverlayCard
+      {/* <NewsOverlayCard
         image={Basketball}
         title="Basketball final game"
         description="Marshal High School among the first 5."
@@ -230,7 +232,7 @@ function App() {
         textSizeTitle="text-2xl" // Custom title text size
         textSizeDescription="text-base" // Custom description text size
         textColor="text-yellow-300" // Custom text color
-      />
+      /> */}
 
       <div className="p-4">
         <ImageSlider
@@ -325,7 +327,7 @@ function App() {
         hoverBgColor="bg-gray-200"
         hoverTextColor="text-indigo-600"
       />
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <SearchComponent
           filterOptions={filterOptions}
           bgColor="bg-gray-100"
@@ -335,7 +337,7 @@ function App() {
           textColor="text-gray-700"
           darkTextColor="dark:text-gray-300"
         />
-      </div> 
+      </div>  */}
 
       {/* 
       <SmallNewCard />
