@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EllipsisVertical, Link2, X, Facebook, Bookmark, Share2, EyeOff, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { EllipsisVertical, Link2, X, Facebook } from 'lucide-react';
 import x from "../assets/images/tweeter.png";
 import whatsapp from "../assets/images/whatsapp.png";
 import email from "../assets/images/email.png";
@@ -38,14 +38,22 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, 
     setShowShareModal(false);
   };
 
-// const eventItemClick = (itemLabel) => {
-//   if (itemLabel.startsWith('Go to')) {
-//     window.open(link, '_blank');
-//     setShowCard(false);
-//   } else {
-//     alert(itemLabel);
-//     setShowCard(false);
-//   }}
+  const handleSaveForLater = () => {
+    const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+    
+    // Check if the article already exists to prevent duplicates
+    const isArticleSaved = savedArticles.some(article => article.link === link);
+
+    if (!isArticleSaved) {
+      savedArticles.push({ title, imageSrc, link, newsOutletName, time });
+      localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+      alert('Article saved for later!');
+    } else {
+      alert('Article is already saved!');
+    }
+    
+    setShowCard(false);
+  };
 
   return (
     <div className="bg-transparent flex flex-col w-full md:w-[50%] p-2 gap-y-1 relative">
@@ -80,21 +88,15 @@ const NewCard = ({ imageSrc, newsOutletName, newsOutletIcon, title, time, link, 
                   className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
                   onClick={() => {
                     if (item.label === 'Save for later') {
-                      const savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
-                      savedArticles.push({ title, imageSrc, link });
-                      localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
-                      alert('Article saved for later!');
-                      setShowCard(false);
+                      handleSaveForLater();
                     } else if (item.label === 'Share') {
                       setShowShareModal(true);
-                      setShowCard(false);
-                    } else if (item.label === `Go to ${newsOutletName}`) {
+                    } else if (item.label.startsWith('Go to')) {
                       window.open(link, '_blank');
-                      setShowCard(false);
                     } else {
                       alert(item.label);
-                      setShowCard(false);
                     }
+                    setShowCard(false);
                   }}
                 >
                   <item.icon className="mr-4 text-gray-500" size={20} />

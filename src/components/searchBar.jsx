@@ -10,7 +10,7 @@ const SearchComponent = ({
     darkTextColor = 'dark:text-gray-300' 
 }) => {
     return (
-        <div className={`relative flex ${textColor} ${darkTextColor} outline-none focus:outline-none w-[30%] py-[10rem]`}>
+        <div className={`relative flex ${textColor} ${darkTextColor} outline-none focus:outline-none w-full md:w-[70%] lg:w-[50%] xl:w-[30%] py-5 m-5`}>
             <select 
                 className={`${bgColor} ${darkBgColor} h-10 px-5 rounded-l-full text-sm focus:outline-none outline-none border-2 ${borderColor} ${darkBorderColor} border-r-1 cursor-pointer max-h-10 overflow-y-hidden`}>
                 {filterOptions.map((option, index) => (

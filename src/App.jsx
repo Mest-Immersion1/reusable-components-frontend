@@ -223,7 +223,7 @@ function App() {
 </div>
       
 
-      {/* <NewsOverlayCard
+      <NewsOverlayCard
         image={Basketball}
         title="Basketball final game"
         description="Marshal High School among the first 5."
@@ -232,16 +232,16 @@ function App() {
         textSizeTitle="text-2xl" // Custom title text size
         textSizeDescription="text-base" // Custom description text size
         textColor="text-yellow-300" // Custom text color
-      /> */}
+      />
 
-      {/* <div className="p-4">
+      <div className="p-4">
         <ImageSlider
           images={images}
           textSizeTitle="text-[50px]" // Custom title text size
           textSizeDescription="text-[20px]" // Custom description text size
           textColor="text-black-300" // Custom text color
         />
-      </div> */}
+      </div>
 
       <MySlider
         heading="Top Stories"
@@ -327,7 +327,7 @@ function App() {
         hoverBgColor="bg-gray-200"
         hoverTextColor="text-indigo-600"
       />
-      {/* <div className="flex justify-center">
+      <div className="flex justify-center">
         <SearchComponent
           filterOptions={filterOptions}
           bgColor="bg-gray-100"
@@ -337,12 +337,25 @@ function App() {
           textColor="text-gray-700"
           darkTextColor="dark:text-gray-300"
         />
-      </div>  */}
+      </div> 
 
-      {/* 
-      <SmallNewCard />
-      <LongNewCard /> */}
-      {/* <NewArticle /> */}
+      
+      <SmallNewCard 
+       newsOutletIcon="https://upload.wikimedia.org/wikipedia/commons/6/66/CNN_International_logo.svg"
+       newsOutletName="CNN news"
+       title="USA rolls, Serbia comes back and France’s home court advantage. Here are 6 important lessons learnt from the men’s basketball quarterfinals"
+       date="2 days ago"
+       link="https://edition.cnn.com/2024/08/06/sport/olympic-takeaways-mens-basketball-quarterfinals-spt/index.html"/>
+
+      <LongNewCard
+       newsOutletIcon="https://logowik.com/content/uploads/images/the-guardian-new-20183613.logowik.com.webp"
+       title="A moment that changed me: I quit my PhD – and left my severe impostor syndrome behind "
+       Image="https://i.guim.co.uk/img/media/590e2d8cbafa1a61f7a4aa9cfdc51979bc9bb57d/0_530_1536_922/master/1536.jpg?width=1140&dpr=2&s=none"
+       date="3 days ago"
+       link="https://www.theguardian.com/lifeandstyle/article/2024/aug/07/a-moment-that-changed-me-i-quit-my-phd-and-left-my-severe-impostor-syndrome-behind"
+     />
+
+       <NewArticle />
 
       {/* <NewCard 
       imageSrc={gymnastic}
@@ -353,8 +366,8 @@ function App() {
       link="https://www.yahoo.com/news/romanian-pm-boycott-olympics-closing-152445637.html"
       className="md:w-1/2"
       menuItem={menuItem}
-      /> */}
-      <More/>
+      />  */}
+     
       <NavBar
         logoSrc="https://upload.wikimedia.org/wikipedia/commons/3/33/Google_News.png"
         menuItems={menuItems}
